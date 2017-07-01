@@ -8,6 +8,7 @@ abstract class Crud extends DB{
 
 	abstract public function insert();
 	abstract public function update($id_ocorrencia);
+	
 
 	public function find($id_ocorrencia){
 		$sql  = "SELECT * FROM $this->table WHERE id_ocorrencia = :id_ocorrencia";
@@ -29,6 +30,7 @@ abstract class Crud extends DB{
 		$stmt = DB::prepare($sql);
 		$stmt->bindParam(':id_ocorrencia', $id_ocorrencia, PDO::PARAM_INT);
 		return $stmt->execute(); 
-	}
 
+	}
 }
+
